@@ -12,6 +12,12 @@ import '@stencil/core';
 
 export namespace Components {
 
+  interface ClBox {}
+  interface ClBoxAttributes extends StencilHTMLAttributes {}
+
+  interface ClPaper {}
+  interface ClPaperAttributes extends StencilHTMLAttributes {}
+
   interface MyComponent {
     /**
     * The first name
@@ -44,13 +50,29 @@ export namespace Components {
 
 declare global {
   interface StencilElementInterfaces {
+    'ClBox': Components.ClBox;
+    'ClPaper': Components.ClPaper;
     'MyComponent': Components.MyComponent;
   }
 
   interface StencilIntrinsicElements {
+    'cl-box': Components.ClBoxAttributes;
+    'cl-paper': Components.ClPaperAttributes;
     'my-component': Components.MyComponentAttributes;
   }
 
+
+  interface HTMLClBoxElement extends Components.ClBox, HTMLStencilElement {}
+  var HTMLClBoxElement: {
+    prototype: HTMLClBoxElement;
+    new (): HTMLClBoxElement;
+  };
+
+  interface HTMLClPaperElement extends Components.ClPaper, HTMLStencilElement {}
+  var HTMLClPaperElement: {
+    prototype: HTMLClPaperElement;
+    new (): HTMLClPaperElement;
+  };
 
   interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
   var HTMLMyComponentElement: {
@@ -59,10 +81,14 @@ declare global {
   };
 
   interface HTMLElementTagNameMap {
+    'cl-box': HTMLClBoxElement
+    'cl-paper': HTMLClPaperElement
     'my-component': HTMLMyComponentElement
   }
 
   interface ElementTagNameMap {
+    'cl-box': HTMLClBoxElement;
+    'cl-paper': HTMLClPaperElement;
     'my-component': HTMLMyComponentElement;
   }
 
