@@ -1,4 +1,5 @@
-import { Component } from '@stencil/core';
+import { Component, Prop } from '@stencil/core';
+import { SystemSpaces, mapSpaceStyles } from '../../utils/design-system';
 
 @Component({
   tag: 'cl-paper',
@@ -7,8 +8,10 @@ import { Component } from '@stencil/core';
 })
 export class ClBox {
 
+  @Prop() spaces: SystemSpaces = [];
 
   render() {
-    return <div><slot /></div>;
+    const styles = mapSpaceStyles(this.spaces);
+    return <div style={{...styles}}><slot /></div>;
   }
 }

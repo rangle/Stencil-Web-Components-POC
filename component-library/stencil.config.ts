@@ -12,5 +12,8 @@ export const config: Config = {
   ],
   copy: [
     { src: 'globals' }
-  ]
+  ],
+  devServer: {
+    openBrowser: true
+  }
 };
