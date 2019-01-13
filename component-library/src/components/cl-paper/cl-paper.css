@@ -1,6 +1,4 @@
 div {
   background-color: var(--color-white);
   border-radius: var(--radius-lg);
-  /* padding: var(--padding);
-  margin: var(--margin) */
 }

@@ -11,16 +11,10 @@ export class ClBox {
 
   @Prop() spaces: SystemSpaces = [];
 
-
-
   render() {
-
     const styles = mapSpaceStyles(this.spaces)
-    console.log('styles are', styles)
-
     return (
       <div style={{ ...styles }}>
-        hey11
         <slot />
       </div>
     );

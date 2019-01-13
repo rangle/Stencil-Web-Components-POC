@@ -20,9 +20,11 @@ export namespace Components {
   interface Cl2UpAttributes extends StencilHTMLAttributes {}
 
   interface ClAvatar {
+    'spaces': SystemSpaces;
     'src': string;
   }
   interface ClAvatarAttributes extends StencilHTMLAttributes {
+    'spaces'?: SystemSpaces;
     'src'?: string;
   }
 
@@ -36,8 +38,12 @@ export namespace Components {
   interface ClHeading {}
   interface ClHeadingAttributes extends StencilHTMLAttributes {}
 
-  interface ClPaper {}
-  interface ClPaperAttributes extends StencilHTMLAttributes {}
+  interface ClPaper {
+    'spaces': SystemSpaces;
+  }
+  interface ClPaperAttributes extends StencilHTMLAttributes {
+    'spaces'?: SystemSpaces;
+  }
 
   interface ClText {
     'size': SystemSizes;
