@@ -1,5 +1,5 @@
 import { Component, Prop } from '@stencil/core';
-import { systemSizes } from '../../globals/system.types';
+import { SystemSizes } from '../../utils/design-system';
 
 
 @Component({
@@ -9,7 +9,7 @@ import { systemSizes } from '../../globals/system.types';
 })
 export class ClText {
 
-  @Prop() size: systemSizes;
+  @Prop() size: SystemSizes;
   @Prop() weight: 'light' | 'bold';
 
   render() {

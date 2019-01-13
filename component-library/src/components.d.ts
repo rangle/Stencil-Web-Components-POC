@@ -9,9 +9,9 @@ import '@stencil/core';
 
 
 import {
-  systemSizes,
-  systemSpaces,
-} from './globals/system.types';
+  SystemSizes,
+  SystemSpaces,
+} from './utils/design-system';
 
 
 export namespace Components {
@@ -27,10 +27,10 @@ export namespace Components {
   }
 
   interface ClBox {
-    'spaces': systemSpaces;
+    'spaces': SystemSpaces;
   }
   interface ClBoxAttributes extends StencilHTMLAttributes {
-    'spaces'?: systemSpaces;
+    'spaces'?: SystemSpaces;
   }
 
   interface ClHeading {}
@@ -40,11 +40,11 @@ export namespace Components {
   interface ClPaperAttributes extends StencilHTMLAttributes {}
 
   interface ClText {
-    'size': systemSizes;
+    'size': SystemSizes;
     'weight': 'light' | 'bold';
   }
   interface ClTextAttributes extends StencilHTMLAttributes {
-    'size'?: systemSizes;
+    'size'?: SystemSizes;
     'weight'?: 'light' | 'bold';
   }
 
