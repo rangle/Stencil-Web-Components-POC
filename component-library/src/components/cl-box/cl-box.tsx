@@ -1,4 +1,7 @@
-import { Component } from '@stencil/core';
+import { Component, Prop } from '@stencil/core';
+import { systemSpaces } from '../../globals/system.types';
+
+const getFirstKey = (obj) => Object.keys(obj).shift()
 
 @Component({
   tag: 'cl-box',
@@ -7,7 +10,28 @@ import { Component } from '@stencil/core';
 })
 export class ClBox {
 
+  @Prop() spaces: systemSpaces = [];
+
+
+
   render() {
-    return <div class={'testy car'} style={{ margin: '2em' }}><slot /></div>;
+
+    const styles = this.spaces.reduce((acc, space) => {
+      const key = getFirstKey(space);
+      return {
+        ...acc,
+        ['padding']: `var(--space-${space[key]})`
+      }
+    }, {})
+    console.log('styles are', styles)
+
+    return (
+      <div style={{ ...styles }}>
+        hey11
+        <slot />
+      </div>
+    );
+
   }
 }
+

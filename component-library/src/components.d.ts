@@ -8,15 +8,48 @@
 import '@stencil/core';
 
 
+import {
+  systemSizes,
+  systemSpaces,
+} from './globals/system.types';
 
 
 export namespace Components {
 
-  interface ClBox {}
-  interface ClBoxAttributes extends StencilHTMLAttributes {}
+  interface Cl2Up {}
+  interface Cl2UpAttributes extends StencilHTMLAttributes {}
+
+  interface ClAvatar {
+    'src': string;
+  }
+  interface ClAvatarAttributes extends StencilHTMLAttributes {
+    'src'?: string;
+  }
+
+  interface ClBox {
+    'spaces': systemSpaces;
+  }
+  interface ClBoxAttributes extends StencilHTMLAttributes {
+    'spaces'?: systemSpaces;
+  }
+
+  interface ClHeading {}
+  interface ClHeadingAttributes extends StencilHTMLAttributes {}
 
   interface ClPaper {}
   interface ClPaperAttributes extends StencilHTMLAttributes {}
+
+  interface ClText {
+    'size': systemSizes;
+    'weight': 'light' | 'bold';
+  }
+  interface ClTextAttributes extends StencilHTMLAttributes {
+    'size'?: systemSizes;
+    'weight'?: 'light' | 'bold';
+  }
+
+  interface ClWeatherCard {}
+  interface ClWeatherCardAttributes extends StencilHTMLAttributes {}
 
   interface MyComponent {
     /**
@@ -50,17 +83,39 @@ export namespace Components {
 
 declare global {
   interface StencilElementInterfaces {
+    'Cl2Up': Components.Cl2Up;
+    'ClAvatar': Components.ClAvatar;
     'ClBox': Components.ClBox;
+    'ClHeading': Components.ClHeading;
     'ClPaper': Components.ClPaper;
+    'ClText': Components.ClText;
+    'ClWeatherCard': Components.ClWeatherCard;
     'MyComponent': Components.MyComponent;
   }
 
   interface StencilIntrinsicElements {
+    'cl-2-up': Components.Cl2UpAttributes;
+    'cl-avatar': Components.ClAvatarAttributes;
     'cl-box': Components.ClBoxAttributes;
+    'cl-heading': Components.ClHeadingAttributes;
     'cl-paper': Components.ClPaperAttributes;
+    'cl-text': Components.ClTextAttributes;
+    'cl-weather-card': Components.ClWeatherCardAttributes;
     'my-component': Components.MyComponentAttributes;
   }
 
+
+  interface HTMLCl2UpElement extends Components.Cl2Up, HTMLStencilElement {}
+  var HTMLCl2UpElement: {
+    prototype: HTMLCl2UpElement;
+    new (): HTMLCl2UpElement;
+  };
+
+  interface HTMLClAvatarElement extends Components.ClAvatar, HTMLStencilElement {}
+  var HTMLClAvatarElement: {
+    prototype: HTMLClAvatarElement;
+    new (): HTMLClAvatarElement;
+  };
 
   interface HTMLClBoxElement extends Components.ClBox, HTMLStencilElement {}
   var HTMLClBoxElement: {
@@ -68,10 +123,28 @@ declare global {
     new (): HTMLClBoxElement;
   };
 
+  interface HTMLClHeadingElement extends Components.ClHeading, HTMLStencilElement {}
+  var HTMLClHeadingElement: {
+    prototype: HTMLClHeadingElement;
+    new (): HTMLClHeadingElement;
+  };
+
   interface HTMLClPaperElement extends Components.ClPaper, HTMLStencilElement {}
   var HTMLClPaperElement: {
     prototype: HTMLClPaperElement;
     new (): HTMLClPaperElement;
+  };
+
+  interface HTMLClTextElement extends Components.ClText, HTMLStencilElement {}
+  var HTMLClTextElement: {
+    prototype: HTMLClTextElement;
+    new (): HTMLClTextElement;
+  };
+
+  interface HTMLClWeatherCardElement extends Components.ClWeatherCard, HTMLStencilElement {}
+  var HTMLClWeatherCardElement: {
+    prototype: HTMLClWeatherCardElement;
+    new (): HTMLClWeatherCardElement;
   };
 
   interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
@@ -81,14 +154,24 @@ declare global {
   };
 
   interface HTMLElementTagNameMap {
+    'cl-2-up': HTMLCl2UpElement
+    'cl-avatar': HTMLClAvatarElement
     'cl-box': HTMLClBoxElement
+    'cl-heading': HTMLClHeadingElement
     'cl-paper': HTMLClPaperElement
+    'cl-text': HTMLClTextElement
+    'cl-weather-card': HTMLClWeatherCardElement
     'my-component': HTMLMyComponentElement
   }
 
   interface ElementTagNameMap {
+    'cl-2-up': HTMLCl2UpElement;
+    'cl-avatar': HTMLClAvatarElement;
     'cl-box': HTMLClBoxElement;
+    'cl-heading': HTMLClHeadingElement;
     'cl-paper': HTMLClPaperElement;
+    'cl-text': HTMLClTextElement;
+    'cl-weather-card': HTMLClWeatherCardElement;
     'my-component': HTMLMyComponentElement;
   }
 
