@@ -32,13 +32,12 @@
      buttonElm.addEventListener('onPressed', event => {
       expansionPanel.isOpen = !expansionPanel.isOpen;
       console.log('Button clicked', event)
+      console.log('Expansion isOpen Prop =', expansionPanel.isOpen)
     });
 
-
-
-
-
-
+    expansionPanel.addEventListener('onTogglePressed', event => {
+      console.log('pressed with', event)
+    })
   </script>
 </body>
 </html>

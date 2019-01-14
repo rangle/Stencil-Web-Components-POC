@@ -1,4 +1,4 @@
-import { Component, Event, EventEmitter, State } from '@stencil/core';
+import { Component, Event, EventEmitter, State, Prop } from '@stencil/core';
 
 @Component({
   tag: 'cl-expansion-panel',
@@ -7,28 +7,41 @@ import { Component, Event, EventEmitter, State } from '@stencil/core';
 })
 export class ClExpansionPanel {
 
+  /*
+    Setting this prop enables control over the panel.
+  */
+  @Prop() isOpen: boolean = null;
   @State() _isOpen: boolean = false;
 
   @Event({
-    eventName: 'onToggled',
+    eventName: 'onTogglePressed',
     composed: true,
     cancelable: true,
     bubbles: true,
-  }) onToggled: EventEmitter;
+  }) onTogglePressed: EventEmitter;
 
   handleSummaryPress = () => {
     this._isOpen = !this._isOpen;
-    this.handleToggled(this._isOpen);
+    this.handleToggledPressed(this._isOpen);
   }
 
-  handleToggled = (isOpen) => {
-    this.onToggled.emit({ isOpen })
+  handleToggledPressed = (isOpen) => {
+    this.onTogglePressed.emit({isOpen})
   }
+
+  private getIsOpen = () => (this.isOpen !== null)
+    ? this.isOpen
+    : this._isOpen
+
+
+  private getOpenClass = () => (this.getIsOpen())
+    ? 'open'
+    : ''
 
   render() {
-    const openClass = this._isOpen ? 'open' : '';
+    const openClass = this.getOpenClass();
     return (
-      <cl-paper isInvisible={!this._isOpen} spaces={[{ p: 'md' }]} class={openClass}>
+      <cl-paper isInvisible={!openClass} spaces={[{ p: 'md' }]} class={openClass}>
         <cl-button-box onOnPressed={this.handleSummaryPress}>
           <cl-text>At 3:32pm it’s -11°</cl-text>
         </cl-button-box>

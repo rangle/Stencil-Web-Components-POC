@@ -43,9 +43,12 @@ export namespace Components {
     'spaces'?: SystemSpaces;
   }
 
-  interface ClExpansionPanel {}
+  interface ClExpansionPanel {
+    'isOpen': boolean;
+  }
   interface ClExpansionPanelAttributes extends StencilHTMLAttributes {
-    'onOnToggled'?: (event: CustomEvent) => void;
+    'isOpen'?: boolean;
+    'onOnTogglePressed'?: (event: CustomEvent) => void;
   }
 
   interface ClHeading {}
