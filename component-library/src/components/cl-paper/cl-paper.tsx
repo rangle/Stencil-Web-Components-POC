@@ -9,9 +9,11 @@ import { SystemSpaces, mapSpaceStyles } from '../../utils/design-system';
 export class ClBox {
 
   @Prop() spaces: SystemSpaces = [];
+  @Prop() isInvisible: boolean = false;
 
   render() {
     const styles = mapSpaceStyles(this.spaces);
-    return <div style={{...styles}}><slot /></div>;
+    const isInvisibleClass = this.isInvisible ? 'isInvisible' : '';
+    return <div class={isInvisibleClass} style={{...styles}}><slot /></div>;
   }
 }

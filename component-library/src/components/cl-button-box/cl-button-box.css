@@ -1,0 +1,11 @@
+button {
+  text-align:left;
+  padding:0px;
+  border:none;
+  cursor: pointer;
+  background-color: transparent;
+  font-size: inherit;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}

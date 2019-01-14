@@ -1,13 +1,15 @@
 
-export type SystemSizes = 'xxs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'xxl';
+export type SystemSizes = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'xxl';
 export type SystemSpaceKeys = 'p' | 'pl' | 'pr' | 'pt' | 'pb' | 'm' | 'ml' | 'mr' | 'mt' | 'mb';
 export type SystemSpaces = Array<{[key in SystemSpaceKeys]?: SystemSizes}>;
 
 const cssClassesMap = {
   p: 'padding',
   m: 'margin',
-  l: 'left',
-  r: 'right'
+  l: 'Left',
+  r: 'Right',
+  b: 'Bottom',
+  t: 'Top',
 }
 
 

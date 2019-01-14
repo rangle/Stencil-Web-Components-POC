@@ -35,13 +35,28 @@ export namespace Components {
     'spaces'?: SystemSpaces;
   }
 
+  interface ClButtonBox {
+    'spaces': SystemSpaces;
+  }
+  interface ClButtonBoxAttributes extends StencilHTMLAttributes {
+    'onOnPressed'?: (event: CustomEvent) => void;
+    'spaces'?: SystemSpaces;
+  }
+
+  interface ClExpansionPanel {}
+  interface ClExpansionPanelAttributes extends StencilHTMLAttributes {
+    'onOnToggled'?: (event: CustomEvent) => void;
+  }
+
   interface ClHeading {}
   interface ClHeadingAttributes extends StencilHTMLAttributes {}
 
   interface ClPaper {
+    'isInvisible': boolean;
     'spaces': SystemSpaces;
   }
   interface ClPaperAttributes extends StencilHTMLAttributes {
+    'isInvisible'?: boolean;
     'spaces'?: SystemSpaces;
   }
 
@@ -54,8 +69,18 @@ export namespace Components {
     'weight'?: 'light' | 'bold';
   }
 
-  interface ClWeatherCard {}
-  interface ClWeatherCardAttributes extends StencilHTMLAttributes {}
+  interface ClWeatherCard {
+    'details': string;
+    'location': string;
+    'src': string;
+    'temperature': string;
+  }
+  interface ClWeatherCardAttributes extends StencilHTMLAttributes {
+    'details'?: string;
+    'location'?: string;
+    'src'?: string;
+    'temperature'?: string;
+  }
 
   interface MyComponent {
     /**
@@ -92,6 +117,8 @@ declare global {
     'Cl2Up': Components.Cl2Up;
     'ClAvatar': Components.ClAvatar;
     'ClBox': Components.ClBox;
+    'ClButtonBox': Components.ClButtonBox;
+    'ClExpansionPanel': Components.ClExpansionPanel;
     'ClHeading': Components.ClHeading;
     'ClPaper': Components.ClPaper;
     'ClText': Components.ClText;
@@ -103,6 +130,8 @@ declare global {
     'cl-2-up': Components.Cl2UpAttributes;
     'cl-avatar': Components.ClAvatarAttributes;
     'cl-box': Components.ClBoxAttributes;
+    'cl-button-box': Components.ClButtonBoxAttributes;
+    'cl-expansion-panel': Components.ClExpansionPanelAttributes;
     'cl-heading': Components.ClHeadingAttributes;
     'cl-paper': Components.ClPaperAttributes;
     'cl-text': Components.ClTextAttributes;
@@ -127,6 +156,18 @@ declare global {
   var HTMLClBoxElement: {
     prototype: HTMLClBoxElement;
     new (): HTMLClBoxElement;
+  };
+
+  interface HTMLClButtonBoxElement extends Components.ClButtonBox, HTMLStencilElement {}
+  var HTMLClButtonBoxElement: {
+    prototype: HTMLClButtonBoxElement;
+    new (): HTMLClButtonBoxElement;
+  };
+
+  interface HTMLClExpansionPanelElement extends Components.ClExpansionPanel, HTMLStencilElement {}
+  var HTMLClExpansionPanelElement: {
+    prototype: HTMLClExpansionPanelElement;
+    new (): HTMLClExpansionPanelElement;
   };
 
   interface HTMLClHeadingElement extends Components.ClHeading, HTMLStencilElement {}
@@ -163,6 +204,8 @@ declare global {
     'cl-2-up': HTMLCl2UpElement
     'cl-avatar': HTMLClAvatarElement
     'cl-box': HTMLClBoxElement
+    'cl-button-box': HTMLClButtonBoxElement
+    'cl-expansion-panel': HTMLClExpansionPanelElement
     'cl-heading': HTMLClHeadingElement
     'cl-paper': HTMLClPaperElement
     'cl-text': HTMLClTextElement
@@ -174,6 +217,8 @@ declare global {
     'cl-2-up': HTMLCl2UpElement;
     'cl-avatar': HTMLClAvatarElement;
     'cl-box': HTMLClBoxElement;
+    'cl-button-box': HTMLClButtonBoxElement;
+    'cl-expansion-panel': HTMLClExpansionPanelElement;
     'cl-heading': HTMLClHeadingElement;
     'cl-paper': HTMLClPaperElement;
     'cl-text': HTMLClTextElement;

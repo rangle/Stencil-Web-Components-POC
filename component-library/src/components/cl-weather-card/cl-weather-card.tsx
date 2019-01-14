@@ -1,4 +1,4 @@
-import { Component } from '@stencil/core';
+import { Component, Prop } from '@stencil/core';
 
 @Component({
   tag: 'cl-weather-card',
@@ -7,16 +7,21 @@ import { Component } from '@stencil/core';
 })
 export class ClWeatherCard {
 
+  @Prop() location: string;
+  @Prop() src: string;
+  @Prop() temperature: string;
+  @Prop() details: string;
+
 
   render() {
     return (
       <cl-paper spaces={[{ p: 'md'}]}>
-        <cl-heading class="title">Toronto</cl-heading>
+        <cl-heading class="title">{this.location}</cl-heading>
         <cl-2-up>
-          <cl-avatar spaces={[{ p: 'md'}]} slot="first" src={'http://cdn.worldweatheronline.net/images/wsymbols01_png_64/wsymbol_0011_light_snow_showers.png'} />
-          <cl-text slot="second" size="xxl" weight="bold">-11°</cl-text>
+          <cl-avatar spaces={[{ p: 'md'}]} slot="first" src={this.src} />
+          <cl-text slot="second" size="xxl" weight="bold">{this.temperature}</cl-text>
         </cl-2-up>
-        <cl-text class="details">Heavy Snow</cl-text>
+        <cl-text class="details">{this.details}</cl-text>
       </cl-paper>
     );
   }

@@ -2,3 +2,7 @@ div {
   background-color: var(--color-white);
   border-radius: var(--radius-lg);
 }
+
+.isInvisible {
+  background-color:transparent;
+}
