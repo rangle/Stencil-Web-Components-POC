@@ -8,3 +8,10 @@
   text-align: center;
   display: block;
 }
+
+
+/**
+ * @prop --background: Background of the button
+ * @prop --background-activated: Background of the button when activated
+ * @prop --background-focused: Background of the button when focused
+ */
