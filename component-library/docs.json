@@ -1,0 +1,291 @@
+{
+  "components": [
+    {
+      "tag": "cl-2-up",
+      "docs": "",
+      "readme": "# cl-2-up\n\n\n",
+      "usage": {},
+      "props": [],
+      "methods": [],
+      "events": [],
+      "styles": []
+    },
+    {
+      "tag": "cl-avatar",
+      "docs": "",
+      "readme": "# cl-avatar\n\n\n",
+      "usage": {},
+      "props": [
+        {
+          "name": "spaces",
+          "type": "{ p?: SystemSizes; pl?: SystemSizes; pr?: SystemSizes; pt?: SystemSizes; pb?: SystemSizes; m?: Sy...",
+          "attr": "spaces",
+          "docs": ""
+        },
+        {
+          "name": "src",
+          "type": "string",
+          "attr": "src",
+          "docs": ""
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "styles": []
+    },
+    {
+      "tag": "cl-box",
+      "docs": "",
+      "readme": "# cl-box\n\n\n",
+      "usage": {},
+      "props": [
+        {
+          "name": "spaces",
+          "type": "{ p?: SystemSizes; pl?: SystemSizes; pr?: SystemSizes; pt?: SystemSizes; pb?: SystemSizes; m?: Sy...",
+          "attr": "spaces",
+          "docs": ""
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "styles": []
+    },
+    {
+      "tag": "cl-button-box",
+      "docs": "",
+      "readme": "# cl-button-box\n\n\n",
+      "usage": {},
+      "props": [
+        {
+          "name": "spaces",
+          "type": "{ p?: SystemSizes; pl?: SystemSizes; pr?: SystemSizes; pt?: SystemSizes; pb?: SystemSizes; m?: Sy...",
+          "attr": "spaces",
+          "docs": ""
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "pressed",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "detail": ""
+        }
+      ],
+      "styles": []
+    },
+    {
+      "tag": "cl-expansion-panel",
+      "docs": "",
+      "readme": "# cl-expansion-panel\n\n\n",
+      "usage": {},
+      "props": [
+        {
+          "name": "isOpen",
+          "type": "boolean",
+          "attr": "is-open",
+          "docs": ""
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "onTogglePressed",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "detail": ""
+        }
+      ],
+      "styles": []
+    },
+    {
+      "tag": "cl-heading",
+      "docs": "",
+      "readme": "# cl-heading\n\n\n",
+      "usage": {},
+      "props": [],
+      "methods": [],
+      "events": [],
+      "styles": []
+    },
+    {
+      "tag": "cl-paper",
+      "docs": "",
+      "readme": "# cl-paper\n\n\n",
+      "usage": {},
+      "props": [
+        {
+          "name": "isInvisible",
+          "type": "boolean",
+          "attr": "is-invisible",
+          "docs": ""
+        },
+        {
+          "name": "spaces",
+          "type": "{ p?: SystemSizes; pl?: SystemSizes; pr?: SystemSizes; pt?: SystemSizes; pb?: SystemSizes; m?: Sy...",
+          "attr": "spaces",
+          "docs": ""
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "styles": []
+    },
+    {
+      "tag": "cl-symbol-icon",
+      "docs": "",
+      "readme": "# cl-symbol-icon\n\n\n",
+      "usage": {},
+      "props": [
+        {
+          "name": "character",
+          "type": "number",
+          "attr": "character",
+          "docs": ""
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "styles": []
+    },
+    {
+      "tag": "cl-text",
+      "docs": "",
+      "readme": "# cl-text\n\n\n",
+      "usage": {},
+      "props": [
+        {
+          "name": "color",
+          "type": "\"primary\" | \"secondary\" | \"tertiary\"",
+          "attr": "color",
+          "docs": ""
+        },
+        {
+          "name": "size",
+          "type": "\"lg\" | \"md\" | \"sm\" | \"xl\" | \"xs\" | \"xxl\" | \"xxs\"",
+          "attr": "size",
+          "docs": ""
+        },
+        {
+          "name": "weight",
+          "type": "\"bold\" | \"light\"",
+          "attr": "weight",
+          "docs": ""
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "styles": []
+    },
+    {
+      "tag": "cl-text-box",
+      "docs": "",
+      "readme": "# cl-text-box\n\n\n",
+      "usage": {},
+      "props": [
+        {
+          "name": "spaces",
+          "type": "{ p?: SystemSizes; pl?: SystemSizes; pr?: SystemSizes; pt?: SystemSizes; pb?: SystemSizes; m?: Sy...",
+          "attr": "spaces",
+          "docs": ""
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "go",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "detail": ""
+        }
+      ],
+      "styles": []
+    },
+    {
+      "tag": "cl-weather-card",
+      "docs": "",
+      "readme": "# cl-weather-card\n\n\n",
+      "usage": {},
+      "props": [
+        {
+          "name": "details",
+          "type": "string",
+          "attr": "details",
+          "docs": ""
+        },
+        {
+          "name": "location",
+          "type": "string",
+          "attr": "location",
+          "docs": ""
+        },
+        {
+          "name": "src",
+          "type": "string",
+          "attr": "src",
+          "docs": ""
+        },
+        {
+          "name": "temperature",
+          "type": "string",
+          "attr": "temperature",
+          "docs": ""
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "styles": [
+        {
+          "annotation": "prop",
+          "name": "--background",
+          "docs": "Background of the button"
+        },
+        {
+          "annotation": "prop",
+          "name": "--background-activated",
+          "docs": "Background of the button when activated"
+        },
+        {
+          "annotation": "prop",
+          "name": "--background-focused",
+          "docs": "Background of the button when focused"
+        }
+      ]
+    },
+    {
+      "tag": "my-component",
+      "docs": "",
+      "readme": "# my-component\n\n\n",
+      "usage": {},
+      "props": [
+        {
+          "name": "first",
+          "type": "string",
+          "attr": "first",
+          "docs": "The first name"
+        },
+        {
+          "name": "last",
+          "type": "string",
+          "attr": "last",
+          "docs": "The last name"
+        },
+        {
+          "name": "middle",
+          "type": "string",
+          "attr": "middle",
+          "docs": "The middle name"
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "styles": []
+    }
+  ]
+}

@@ -15,7 +15,8 @@
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
-    "storybook": "start-storybook -p 9001 -c .storybook"
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "docs.data": "stencil build --docs-json docs.json"
   },
   "dependencies": {},
   "devDependencies": {
