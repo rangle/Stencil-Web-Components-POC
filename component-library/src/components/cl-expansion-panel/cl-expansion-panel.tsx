@@ -15,7 +15,7 @@ export class ClExpansionPanel {
 
 
   /**
-  * Executes toggle (title) area is pressed
+  * Executes when title area is pressed
   */
   @Event({
     eventName: 'onTogglePressed',
