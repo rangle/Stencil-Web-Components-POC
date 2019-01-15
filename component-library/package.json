@@ -14,11 +14,20 @@
     "build": "stencil build --docs",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
-    "test.watch": "stencil test --spec --e2e --watchAll"
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "dependencies": {},
   "devDependencies": {
-    "@stencil/core": "~0.15.2"
+    "@babel/core": "^7.2.2",
+    "@stencil/core": "~0.15.2",
+    "@storybook/html": "^4.1.6",
+    "@storybook/polymer": "^4.0.0-alpha.4",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.5",
+    "babel-runtime": "^6.26.0",
+    "lit-html": "^0.9.0",
+    "polymer-webpack-loader": "^2.0.2"
   },
   "license": "MIT"
 }
