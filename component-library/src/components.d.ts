@@ -82,7 +82,7 @@ export namespace Components {
     */
     'isOpen'?: boolean;
     /**
-    * Executes toggle (title) area is pressed
+    * Executes when title area is pressed
     */
     'onOnTogglePressed'?: (event: CustomEvent) => void;
   }

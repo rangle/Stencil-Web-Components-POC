@@ -51,10 +51,10 @@ export class ClExpansionPanel {
     return (
       <cl-paper isInvisible={!openClass} spaces={[{ p: 'md' }]} class={openClass}>
         <cl-button-box onPressed={this.handleSummaryPress}>
-          <cl-text color="secondary">At 3:32pm it’s -11°</cl-text>
+          <slot name="description"></slot>
         </cl-button-box>
         <cl-box spaces={[{ pt: 'sm'}]} class="details">
-          <cl-text weight="light">Overcast</cl-text>
+          <slot name="details"></slot>
         </cl-box>
       </cl-paper>
     );

@@ -25,7 +25,11 @@
   ></cl-weather-card>
   <br />
 
-  <cl-expansion-panel isOpen="true"></cl-expansion-panel>
+  <cl-expansion-panel isOpen="true">
+    <cl-text slot="description" color="secondary">At 3:32pm it’s -11°</cl-text>
+    <cl-text slot="details" weight="light">Overcast</cl-text>
+  </cl-expansion-panel>
+
   <cl-button-box>Button Box</cl-button-box>
   <script>
      const expansionPanel = document.querySelector('cl-expansion-panel');
