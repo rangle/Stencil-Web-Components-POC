@@ -1,8 +1,6 @@
 /*! Built with http://stenciljs.com */
 const { h } = window.ComponentLibrary;
 
-import { a as mapSpaceStyles } from './chunk-cc6147d0.js';
-
 class ClBox {
     render() {
         return (h("div", { class: "wrap" },
@@ -49,38 +47,36 @@ class ClHeading {
     static get style() { return "cl-text {\n  color: var(--color-secondary)\n}"; }
 }
 
-class ClBox$1 {
-    constructor() {
-        this.spaces = [];
-    }
-    render() {
-        const styles = mapSpaceStyles(this.spaces);
-        return h("div", { style: Object.assign({}, styles) },
-            h("slot", null));
-    }
-    static get is() { return "cl-paper"; }
-    static get encapsulation() { return "shadow"; }
-    static get properties() { return {
-        "spaces": {
-            "type": "Any",
-            "attr": "spaces"
-        }
-    }; }
-    static get style() { return "div {\n  background-color: var(--color-white);\n  border-radius: var(--radius-lg);\n}"; }
-}
-
 class ClWeatherCard {
     render() {
         return (h("cl-paper", { spaces: [{ p: 'md' }] },
-            h("cl-heading", { class: "title" }, "Toronto"),
+            h("cl-heading", { class: "title" }, this.location),
             h("cl-2-up", null,
-                h("cl-avatar", { spaces: [{ p: 'md' }], slot: "first", src: 'http://cdn.worldweatheronline.net/images/wsymbols01_png_64/wsymbol_0011_light_snow_showers.png' }),
-                h("cl-text", { slot: "second", size: "xxl", weight: "bold" }, "-11\u00B0")),
-            h("cl-text", { class: "details" }, "Heavy Snow")));
+                h("cl-avatar", { spaces: [{ p: 'md' }], slot: "first", src: this.src }),
+                h("cl-text", { slot: "second", size: "xxl", weight: "bold" }, this.temperature)),
+            h("cl-text", { class: "details" }, this.details)));
     }
     static get is() { return "cl-weather-card"; }
     static get encapsulation() { return "shadow"; }
+    static get properties() { return {
+        "details": {
+            "type": String,
+            "attr": "details"
+        },
+        "location": {
+            "type": String,
+            "attr": "location"
+        },
+        "src": {
+            "type": String,
+            "attr": "src"
+        },
+        "temperature": {
+            "type": String,
+            "attr": "temperature"
+        }
+    }; }
     static get style() { return ".title {\n  text-align:center;\n}\n\n.details {\n  text-align: center;\n  display: block;\n}"; }
 }
 
-export { ClBox as Cl2Up, ClAvatar, ClHeading, ClBox$1 as ClPaper, ClWeatherCard };
+export { ClBox as Cl2Up, ClAvatar, ClHeading, ClWeatherCard };

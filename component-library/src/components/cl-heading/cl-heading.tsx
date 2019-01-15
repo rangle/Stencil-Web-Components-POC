@@ -11,7 +11,7 @@ export class ClHeading {
   render() {
     return (
       <cl-Box>
-        <cl-text weight="bold" size="lg"><slot /></cl-text>
+        <cl-text color="secondary" weight="bold" size="lg"><slot /></cl-text>
       </cl-Box>
     );
   }

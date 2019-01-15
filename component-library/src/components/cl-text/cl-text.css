@@ -1,5 +1,6 @@
 span {
   display:inline-block;
+  font-weight: var(--font-weight-7)
   /* padding: var(--padding-x);
   margin: var(--margin-x); */
 }

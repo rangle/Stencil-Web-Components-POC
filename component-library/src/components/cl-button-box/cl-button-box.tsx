@@ -10,16 +10,16 @@ import { SystemSpaces, mapSpaceStyles } from '../../utils/design-system';
 export class ClButtonBox {
 
   @Event({
-    eventName: 'onPressed',
+    eventName: 'pressed',
     composed: true,
     cancelable: true,
     bubbles: true,
-  }) onPressed: EventEmitter;
+  }) pressed: EventEmitter;
 
   @Prop() spaces: SystemSpaces = [];
 
   onPressHandler = (event) => {
-    this.onPressed.emit(event);
+    this.pressed.emit(event);
   }
 
   render() {

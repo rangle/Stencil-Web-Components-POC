@@ -43,15 +43,18 @@
   --hue-secondary: 0;
   --hue-black: 0;
 
+  --color-primary: hsl(var(--hue-secondary), 0%, 60%);
   --color-secondary: hsl(var(--hue-secondary), 68%, 60%);
+  --color-tertiary: var(--color-black);
 
   /* shades */
   --color-black: hsl(var(--hue-black), 0%, 0%);
   --color-gray-4: hsl(var(--hue-black), 0%, 20%);
   --color-gray-3: hsl(var(--hue-black), 0%, 40%);
   --color-gray-2: hsl(var(--hue-black), 0%, 60%);
-  --color-gray-1: hsl(var(--hue-black), 0%, 80%);
+  --color-gray-1: hsl(var(--hue-black), 0%, 85%);
   --color-white: hsl(var(--hue-black), 0%, 100%);
+
 
 
 }
@@ -59,4 +62,5 @@
 body {
   font-size: var(--text-base-size);
   font-family: var(--font-primary);
+  color: var(--font-color-primary)
 }

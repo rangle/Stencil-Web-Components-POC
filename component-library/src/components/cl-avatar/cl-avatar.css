@@ -1,7 +1,7 @@
 
 .wrapper {
   overflow:hidden;
-  border: var(--space-xxs) solid var(--color-gray-1);
+  border: 2px solid var(--color-gray-1);
   width: var(--space-xxl);
   border-radius: 100%;
   display: inline-block;
@@ -16,7 +16,7 @@
 .media {
   background-size: cover !important;
   border-radius: 100%;
-  border: var(--space-xxs) solid var(--color-white);
+  border: 2px solid var(--color-white);
   position: absolute;
   top:0px;
   right:0px;

@@ -1,0 +1,12 @@
+
+span {
+  font-size: var(--text-sm);
+  border:1px solid white;
+  display:block;
+  padding: var(--space-xs);
+  line-height: .5em;
+  background-color: var(--color-secondary);
+  text-align: center;
+  color: #ffffff;
+  border-radius: 100%;
+}

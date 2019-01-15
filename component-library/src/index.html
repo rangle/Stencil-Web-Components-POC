@@ -14,7 +14,8 @@
 
 </head>
 <body>
-  <cl-paper>Paper</cl-paper>
+  <br />
+  <cl-text-box></cl-text-box>
   <br />
   <cl-weather-card
     location="Toronto"
@@ -23,11 +24,17 @@
     details="Heavy Rain"
   ></cl-weather-card>
   <br />
+
   <cl-expansion-panel isOpen="true"></cl-expansion-panel>
   <cl-button-box>Button Box</cl-button-box>
   <script>
      const expansionPanel = document.querySelector('cl-expansion-panel');
      const buttonElm = document.querySelector('cl-button-box');
+     const textBoxElm = document.querySelector('cl-text-box');
+
+     textBoxElm.addEventListener('go', event => {
+       console.log('event is', event);
+     })
 
      buttonElm.addEventListener('onPressed', event => {
       expansionPanel.isOpen = !expansionPanel.isOpen;

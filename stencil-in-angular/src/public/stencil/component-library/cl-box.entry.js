@@ -1,7 +1,7 @@
 /*! Built with http://stenciljs.com */
 const { h } = window.ComponentLibrary;
 
-import { a as mapSpaceStyles } from './chunk-cc6147d0.js';
+import { a as mapSpaceStyles } from './chunk-06567094.js';
 
 class ClBox {
     constructor() {

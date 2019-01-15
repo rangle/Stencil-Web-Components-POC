@@ -297,7 +297,13 @@ function createDomApi(App, win, doc) {
   domApi.$supportsShadowDom = false);
   true;
   domApi.$attachShadow = ((elm, shadowRootInit) => elm.attachShadow(shadowRootInit));
-  false, false;
+  true;
+  // test if this browser supports event options or not
+  try {
+    win.addEventListener('e', null, Object.defineProperty({}, 'passive', {
+      get: () => domApi.$supportsEventOptions = true
+    }));
+  } catch (e) {}
   return domApi;
 }
 
@@ -1338,6 +1344,22 @@ function registerWithParentComponent(plt, elm, ancestorHostElement) {
   }
 }
 
+function initEventEmitters(plt, cmpEvents, instance) {
+  if (cmpEvents) {
+    const elm = plt.hostElementMap.get(instance);
+    cmpEvents.forEach(eventMeta => {
+      instance[eventMeta.method] = {
+        emit: data => plt.emitEvent(elm, eventMeta.name, {
+          bubbles: eventMeta.bubbles,
+          composed: eventMeta.composed,
+          cancelable: eventMeta.cancelable,
+          detail: data
+        })
+      };
+    });
+  }
+}
+
 function parseComponentLoader(cmpRegistryData) {
   // tag name will always be lower case
   // parse member meta
@@ -1532,7 +1554,20 @@ async function update(plt, elm, perf, isInitialLoad, instance, ancestorHostEleme
       // create the instance from the user's component class
       // https://www.youtube.com/watch?v=olLxrojmvMg
             instance = initComponentInstance(plt, elm, plt.hostSnapshotMap.get(elm), perf);
-      false;
+      if (true, instance) 
+      // this is the initial load and the instance was just created
+      // fire off the user's componentWillLoad method (if one was provided)
+      // componentWillLoad only runs ONCE, after instance's element has been
+      // assigned as the host element, but BEFORE render() has been called
+      try {
+        if (instance.componentWillLoad) {
+          false;
+          await instance.componentWillLoad();
+          false;
+        }
+      } catch (e) {
+        plt.onError(e, 3 /* WillLoadError */ , elm);
+      }
     } else false;
     // if this component has a render function, let's fire
     // it off and generate a vnode for this
@@ -1691,7 +1726,10 @@ function initComponentInstance(plt, elm, hostSnapshot, perf, instance, component
     // let's upgrade the data on the host element
     // and let the getters/setters do their jobs
         proxyComponentInstance(plt, componentConstructor, elm, instance, hostSnapshot, perf);
-    false;
+    true;
+    // add each of the event emitters which wire up instance methods
+    // to fire off dom events from the host element
+    initEventEmitters(plt, componentConstructor.events, instance);
     false;
   } catch (e) {
     // something done went wrong trying to create a component instance
@@ -1981,7 +2019,8 @@ function createPlatformMain(namespace, Context, win, doc, resourcesUrl, hydrated
   Context.document = doc;
   Context.resourcesUrl = Context.publicPath = resourcesUrl;
   false;
-  false;
+  true;
+  Context.emit = ((elm, eventName, data) => domApi.$dispatchEvent(elm, Context.eventNameFn ? Context.eventNameFn(eventName) : eventName, data));
   // add the h() fn to the app's global namespace
   App.h = h;
   App.Context = Context;
@@ -2130,4 +2169,4 @@ function createPlatformMain(namespace, Context, win, doc, resourcesUrl, hydrated
 
 // esm build which uses es module imports and dynamic imports
 createPlatformMain(namespace, Context, window, document, resourcesUrl, hydratedCssClass, components);
-})(window,document,{},"ComponentLibrary","hydrated",[["cl-2-up","cl-2-up",1,0,1],["cl-avatar","cl-2-up",1,[["spaces",1],["src",1,0,1,2]],1],["cl-box","cl-box",1,[["spaces",1]],1],["cl-heading","cl-2-up",1,0,1],["cl-paper","cl-2-up",1,[["spaces",1]],1],["cl-text","cl-text",1,[["size",1,0,1,2],["weight",1,0,1,2]],1],["cl-weather-card","cl-2-up",1,0,1],["my-component","my-component",1,[["first",1,0,1,2],["last",1,0,1,2],["middle",1,0,1,2]],1]]);
+})(window,document,{},"ComponentLibrary","hydrated",[["cl-2-up","cl-2-up",1,0,1],["cl-avatar","cl-2-up",1,[["spaces",1],["src",1,0,1,2]],1],["cl-box","cl-box",1,[["spaces",1]],1],["cl-button-box","cl-button-box",1,[["spaces",1]],1],["cl-expansion-panel","cl-button-box",1,[["_isOpen",16],["isOpen",1,0,"is-open",4]],1],["cl-heading","cl-2-up",1,0,1],["cl-paper","cl-paper",1,[["isInvisible",1,0,"is-invisible",4],["spaces",1]],1],["cl-text","cl-paper",1,[["size",1,0,1,2],["weight",1,0,1,2]],1],["cl-weather-card","cl-2-up",1,[["details",1,0,1,2],["location",1,0,1,2],["src",1,0,1,2],["temperature",1,0,1,2]],1],["my-component","my-component",1,[["first",1,0,1,2],["last",1,0,1,2],["middle",1,0,1,2]],1]]);

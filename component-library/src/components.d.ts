@@ -39,7 +39,7 @@ export namespace Components {
     'spaces': SystemSpaces;
   }
   interface ClButtonBoxAttributes extends StencilHTMLAttributes {
-    'onOnPressed'?: (event: CustomEvent) => void;
+    'onPressed'?: (event: CustomEvent) => void;
     'spaces'?: SystemSpaces;
   }
 
@@ -63,11 +63,28 @@ export namespace Components {
     'spaces'?: SystemSpaces;
   }
 
+  interface ClSymbolIcon {
+    'character': number;
+  }
+  interface ClSymbolIconAttributes extends StencilHTMLAttributes {
+    'character'?: number;
+  }
+
+  interface ClTextBox {
+    'spaces': SystemSpaces;
+  }
+  interface ClTextBoxAttributes extends StencilHTMLAttributes {
+    'onGo'?: (event: CustomEvent) => void;
+    'spaces'?: SystemSpaces;
+  }
+
   interface ClText {
+    'color': 'primary' | 'secondary' | 'tertiary';
     'size': SystemSizes;
     'weight': 'light' | 'bold';
   }
   interface ClTextAttributes extends StencilHTMLAttributes {
+    'color'?: 'primary' | 'secondary' | 'tertiary';
     'size'?: SystemSizes;
     'weight'?: 'light' | 'bold';
   }
@@ -124,6 +141,8 @@ declare global {
     'ClExpansionPanel': Components.ClExpansionPanel;
     'ClHeading': Components.ClHeading;
     'ClPaper': Components.ClPaper;
+    'ClSymbolIcon': Components.ClSymbolIcon;
+    'ClTextBox': Components.ClTextBox;
     'ClText': Components.ClText;
     'ClWeatherCard': Components.ClWeatherCard;
     'MyComponent': Components.MyComponent;
@@ -137,6 +156,8 @@ declare global {
     'cl-expansion-panel': Components.ClExpansionPanelAttributes;
     'cl-heading': Components.ClHeadingAttributes;
     'cl-paper': Components.ClPaperAttributes;
+    'cl-symbol-icon': Components.ClSymbolIconAttributes;
+    'cl-text-box': Components.ClTextBoxAttributes;
     'cl-text': Components.ClTextAttributes;
     'cl-weather-card': Components.ClWeatherCardAttributes;
     'my-component': Components.MyComponentAttributes;
@@ -185,6 +206,18 @@ declare global {
     new (): HTMLClPaperElement;
   };
 
+  interface HTMLClSymbolIconElement extends Components.ClSymbolIcon, HTMLStencilElement {}
+  var HTMLClSymbolIconElement: {
+    prototype: HTMLClSymbolIconElement;
+    new (): HTMLClSymbolIconElement;
+  };
+
+  interface HTMLClTextBoxElement extends Components.ClTextBox, HTMLStencilElement {}
+  var HTMLClTextBoxElement: {
+    prototype: HTMLClTextBoxElement;
+    new (): HTMLClTextBoxElement;
+  };
+
   interface HTMLClTextElement extends Components.ClText, HTMLStencilElement {}
   var HTMLClTextElement: {
     prototype: HTMLClTextElement;
@@ -211,6 +244,8 @@ declare global {
     'cl-expansion-panel': HTMLClExpansionPanelElement
     'cl-heading': HTMLClHeadingElement
     'cl-paper': HTMLClPaperElement
+    'cl-symbol-icon': HTMLClSymbolIconElement
+    'cl-text-box': HTMLClTextBoxElement
     'cl-text': HTMLClTextElement
     'cl-weather-card': HTMLClWeatherCardElement
     'my-component': HTMLMyComponentElement
@@ -224,6 +259,8 @@ declare global {
     'cl-expansion-panel': HTMLClExpansionPanelElement;
     'cl-heading': HTMLClHeadingElement;
     'cl-paper': HTMLClPaperElement;
+    'cl-symbol-icon': HTMLClSymbolIconElement;
+    'cl-text-box': HTMLClTextBoxElement;
     'cl-text': HTMLClTextElement;
     'cl-weather-card': HTMLClWeatherCardElement;
     'my-component': HTMLMyComponentElement;

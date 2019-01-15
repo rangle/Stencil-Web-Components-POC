@@ -16,7 +16,7 @@ const cssClassesMap = {
 const getFirstKey = (obj: any) => Object.keys(obj).shift()
 
 const getCssKey = (key: string) => key.split('').reduce((acc, char) => {
-  return (acc) ? `${acc}-${cssClassesMap[char]}` : `${cssClassesMap[char]}`;
+  return (acc) ? `${acc}${cssClassesMap[char]}` : `${cssClassesMap[char]}`;
 }, null);
 
 export const mapSpaceStyles = (spaces) => spaces.reduce((acc, space) => {

@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'stencil-in-angular';
+
+  isOpen = false;
+
+  handleTogglePanel() {
+    console.log('toggle panel');
+    this.isOpen = !this.isOpen;
+  }
 }
