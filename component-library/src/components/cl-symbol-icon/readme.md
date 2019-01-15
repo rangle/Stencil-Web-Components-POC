@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property    | Attribute   | Description | Type     |
-| ----------- | ----------- | ----------- | -------- |
-| `character` | `character` |             | `number` |
+| Property    | Attribute   | Description           | Type     |
+| ----------- | ----------- | --------------------- | -------- |
+| `character` | `character` | HTML character number | `number` |
 
 
 ----------------------------------------------

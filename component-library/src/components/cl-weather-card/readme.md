@@ -7,12 +7,12 @@
 
 ## Properties
 
-| Property      | Attribute     | Description | Type     |
-| ------------- | ------------- | ----------- | -------- |
-| `details`     | `details`     |             | `string` |
-| `location`    | `location`    |             | `string` |
-| `src`         | `src`         |             | `string` |
-| `temperature` | `temperature` |             | `string` |
+| Property      | Attribute     | Description                         | Type     |
+| ------------- | ------------- | ----------------------------------- | -------- |
+| `details`     | `details`     | Weather details                     | `string` |
+| `location`    | `location`    | City that renders as the card title | `string` |
+| `src`         | `src`         | Path to image                       | `string` |
+| `temperature` | `temperature` | Temperature value                   | `string` |
 
 
 ## CSS Custom Properties

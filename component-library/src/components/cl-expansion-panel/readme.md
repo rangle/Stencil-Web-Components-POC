@@ -7,16 +7,16 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type      |
-| -------- | --------- | ----------- | --------- |
-| `isOpen` | `is-open` |             | `boolean` |
+| Property | Attribute | Description                                       | Type      |
+| -------- | --------- | ------------------------------------------------- | --------- |
+| `isOpen` | `is-open` | Setting this prop enables control over the panel. | `boolean` |
 
 
 ## Events
 
-| Event             | Detail | Description |
-| ----------------- | ------ | ----------- |
-| `onTogglePressed` |        |             |
+| Event             | Detail | Description                             |
+| ----------------- | ------ | --------------------------------------- |
+| `onTogglePressed` |        | Executes toggle (title) area is pressed |
 
 
 ----------------------------------------------
