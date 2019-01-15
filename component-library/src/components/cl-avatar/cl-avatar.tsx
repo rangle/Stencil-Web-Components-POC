@@ -8,7 +8,14 @@ import { SystemSpaces } from '../../utils/design-system';
 })
 export class ClAvatar {
 
+  /**
+  * Path to image
+  */
   @Prop() src: string;
+
+  /**
+  * Space style props
+  */
   @Prop() spaces: SystemSpaces;
 
   render() {

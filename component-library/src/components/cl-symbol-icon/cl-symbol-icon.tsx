@@ -8,9 +8,10 @@ import { Component, Prop } from '@stencil/core';
 })
 export class ClSymbolIcon {
 
+  /**
+  * HTML character number
+  */
   @Prop() character: number;
-
-
 
   render() {
     return (

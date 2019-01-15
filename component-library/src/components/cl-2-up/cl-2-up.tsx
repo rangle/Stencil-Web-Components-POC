@@ -2,10 +2,10 @@ import { Component } from '@stencil/core';
 
 @Component({
   tag: 'cl-2-up',
-  styleUrl: '2-up.css',
+  styleUrl: 'cl-2-up.css',
   shadow: true
 })
-export class ClBox {
+export class Cl2Up {
 
   render() {
     return (

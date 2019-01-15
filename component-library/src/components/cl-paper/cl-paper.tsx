@@ -8,7 +8,14 @@ import { SystemSpaces, mapSpaceStyles } from '../../utils/design-system';
 })
 export class ClBox {
 
+  /**
+  * Space style props
+  */
   @Prop() spaces: SystemSpaces = [];
+
+  /**
+  * Hides the background
+  */
   @Prop() isInvisible: boolean = false;
 
   render() {

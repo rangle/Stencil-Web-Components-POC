@@ -9,9 +9,15 @@ import { SystemSpaces } from '../../utils/design-system';
 })
 export class ClTextBox {
 
+  /**
+  * Space style props
+  */
   @Prop() spaces: SystemSpaces = [];
   @State() value: string;
 
+  /**
+  * Executes after submitting
+  */
   @Event({
     eventName: 'go',
     composed: true,

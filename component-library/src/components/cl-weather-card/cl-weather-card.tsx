@@ -7,9 +7,24 @@ import { Component, Prop } from '@stencil/core';
 })
 export class ClWeatherCard {
 
+  /**
+  * City that renders as the card title
+  */
   @Prop() location: string;
+
+  /**
+  * Path to image
+  */
   @Prop() src: string;
+
+  /**
+  * Temperature value
+  */
   @Prop() temperature: string;
+
+  /**
+  * Weather details
+  */
   @Prop() details: string;
 
 

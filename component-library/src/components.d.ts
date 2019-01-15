@@ -20,34 +20,70 @@ export namespace Components {
   interface Cl2UpAttributes extends StencilHTMLAttributes {}
 
   interface ClAvatar {
+    /**
+    * Space style props
+    */
     'spaces': SystemSpaces;
+    /**
+    * Path to image
+    */
     'src': string;
   }
   interface ClAvatarAttributes extends StencilHTMLAttributes {
+    /**
+    * Space style props
+    */
     'spaces'?: SystemSpaces;
+    /**
+    * Path to image
+    */
     'src'?: string;
   }
 
   interface ClBox {
+    /**
+    * Space style props
+    */
     'spaces': SystemSpaces;
   }
   interface ClBoxAttributes extends StencilHTMLAttributes {
+    /**
+    * Space style props
+    */
     'spaces'?: SystemSpaces;
   }
 
   interface ClButtonBox {
+    /**
+    * Space style props
+    */
     'spaces': SystemSpaces;
   }
   interface ClButtonBoxAttributes extends StencilHTMLAttributes {
+    /**
+    * Executes after pressed
+    */
     'onPressed'?: (event: CustomEvent) => void;
+    /**
+    * Space style props
+    */
     'spaces'?: SystemSpaces;
   }
 
   interface ClExpansionPanel {
+    /**
+    * Setting this prop enables control over the panel.
+    */
     'isOpen': boolean;
   }
   interface ClExpansionPanelAttributes extends StencilHTMLAttributes {
+    /**
+    * Setting this prop enables control over the panel.
+    */
     'isOpen'?: boolean;
+    /**
+    * Executes toggle (title) area is pressed
+    */
     'onOnTogglePressed'?: (event: CustomEvent) => void;
   }
 
@@ -55,50 +91,119 @@ export namespace Components {
   interface ClHeadingAttributes extends StencilHTMLAttributes {}
 
   interface ClPaper {
+    /**
+    * Hides the background
+    */
     'isInvisible': boolean;
+    /**
+    * Space style props
+    */
     'spaces': SystemSpaces;
   }
   interface ClPaperAttributes extends StencilHTMLAttributes {
+    /**
+    * Hides the background
+    */
     'isInvisible'?: boolean;
+    /**
+    * Space style props
+    */
     'spaces'?: SystemSpaces;
   }
 
   interface ClSymbolIcon {
+    /**
+    * HTML character number
+    */
     'character': number;
   }
   interface ClSymbolIconAttributes extends StencilHTMLAttributes {
+    /**
+    * HTML character number
+    */
     'character'?: number;
   }
 
   interface ClTextBox {
+    /**
+    * Space style props
+    */
     'spaces': SystemSpaces;
   }
   interface ClTextBoxAttributes extends StencilHTMLAttributes {
+    /**
+    * Executes after submitting
+    */
     'onGo'?: (event: CustomEvent) => void;
+    /**
+    * Space style props
+    */
     'spaces'?: SystemSpaces;
   }
 
   interface ClText {
+    /**
+    * Font size style props
+    */
     'color': 'primary' | 'secondary' | 'tertiary';
+    /**
+    * Font style props
+    */
     'size': SystemSizes;
+    /**
+    * Font weight style props
+    */
     'weight': 'light' | 'bold';
   }
   interface ClTextAttributes extends StencilHTMLAttributes {
+    /**
+    * Font size style props
+    */
     'color'?: 'primary' | 'secondary' | 'tertiary';
+    /**
+    * Font style props
+    */
     'size'?: SystemSizes;
+    /**
+    * Font weight style props
+    */
     'weight'?: 'light' | 'bold';
   }
 
   interface ClWeatherCard {
+    /**
+    * Weather details
+    */
     'details': string;
+    /**
+    * City that renders as the card title
+    */
     'location': string;
+    /**
+    * Path to image
+    */
     'src': string;
+    /**
+    * Temperature value
+    */
     'temperature': string;
   }
   interface ClWeatherCardAttributes extends StencilHTMLAttributes {
+    /**
+    * Weather details
+    */
     'details'?: string;
+    /**
+    * City that renders as the card title
+    */
     'location'?: string;
+    /**
+    * Path to image
+    */
     'src'?: string;
+    /**
+    * Temperature value
+    */
     'temperature'?: string;
   }
 

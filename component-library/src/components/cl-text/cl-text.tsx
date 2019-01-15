@@ -9,8 +9,19 @@ import { SystemSizes } from '../../utils/design-system';
 })
 export class ClText {
 
+  /**
+  * Font style props
+  */
   @Prop() size: SystemSizes;
+
+  /**
+  * Font weight style props
+  */
   @Prop() weight: 'light' | 'bold';
+
+  /**
+  * Font size style props
+  */
   @Prop() color: 'primary' | 'secondary' | 'tertiary';
 
   render() {

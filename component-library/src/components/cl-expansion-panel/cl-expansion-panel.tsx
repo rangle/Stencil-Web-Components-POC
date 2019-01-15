@@ -7,12 +7,16 @@ import { Component, Event, EventEmitter, State, Prop } from '@stencil/core';
 })
 export class ClExpansionPanel {
 
-  /*
-    Setting this prop enables control over the panel.
+  /**
+  * Setting this prop enables control over the panel.
   */
   @Prop() isOpen: boolean = null;
   @State() _isOpen: boolean = false;
 
+
+  /**
+  * Executes toggle (title) area is pressed
+  */
   @Event({
     eventName: 'onTogglePressed',
     composed: true,
