@@ -22,11 +22,15 @@ export class ClExpansionPanel {
 
   handleSummaryPress = () => {
     this._isOpen = !this._isOpen;
-    this.handleToggledPressed(this._isOpen);
+    this.handleToggledPressed(this.getIsOpen());
   }
 
   handleToggledPressed = (isOpen) => {
     this.onTogglePressed.emit({isOpen})
+  }
+
+  componentWillLoad() {
+    console.log('isOpen', this.isOpen);
   }
 
   private getIsOpen = () => (this.isOpen !== null)

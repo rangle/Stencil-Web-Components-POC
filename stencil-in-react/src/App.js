@@ -1,13 +1,24 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+
+  state = {
+    isOpen: true
+  }
+
+  handleButtonPress = () => {
+    this.setState({
+      isOpen: !this.state.isOpen
+    })
+  }
+
+
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
@@ -20,7 +31,16 @@ class App extends Component {
             Learn React
           </a>
         </header>
-        <cl-weather-card>weather</cl-weather-card>
+        <br />
+        <cl-weather-card
+          location="Toronto"
+          src="http://cdn.worldweatheronline.net/images/wsymbols01_png_64/wsymbol_0011_light_snow_showers.png"
+          temperature="-11°"
+          details="Heavy Rain"
+        ></cl-weather-card>
+        <br />
+        <cl-expansion-panel is-open={this.state.isOpen}></cl-expansion-panel>
+        <button onClick={this.handleButtonPress}>toggle</button>
       </div>
     );
   }

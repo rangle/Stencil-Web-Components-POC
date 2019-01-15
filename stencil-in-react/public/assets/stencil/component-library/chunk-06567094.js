@@ -4,8 +4,10 @@ const { h } = window.ComponentLibrary;
 const cssClassesMap = {
     p: 'padding',
     m: 'margin',
-    l: 'left',
-    r: 'right'
+    l: 'Left',
+    r: 'Right',
+    b: 'Bottom',
+    t: 'Top',
 };
 const getFirstKey = (obj) => Object.keys(obj).shift();
 const getCssKey = (key) => key.split('').reduce((acc, char) => {
