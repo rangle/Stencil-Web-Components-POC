@@ -41,7 +41,9 @@ export class ClTextBox {
         <div class="wrap">
           <input type="text" value={this.value} onInput={this.handleChange} />
           <cl-button-box onPressed={this.handleSubmit}>
-            <cl-symbol-icon character={43}></cl-symbol-icon>
+            <span class="icon">
+              <cl-symbol-icon character={43}></cl-symbol-icon>
+            </span>
           </cl-button-box>
         </div>
       </cl-paper>

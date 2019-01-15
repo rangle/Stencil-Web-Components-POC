@@ -12,5 +12,9 @@ input[type="text"] {
   font-size: inherit;
 }
 
+.icon {
+  font-size: .75em;
+}
+
 
 
