@@ -23,6 +23,7 @@ export class ClAvatar {
       <cl-box spaces={this.spaces}>
         <div class="wrapper">
           <div class="aspect-ratio">
+            <p>hi there!!</p>
             <div class="media" style={{background: `url(${this.src})`}}></div>
           </div>
         </div>

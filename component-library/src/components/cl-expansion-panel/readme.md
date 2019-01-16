@@ -14,9 +14,9 @@
 
 ## Events
 
-| Event             | Detail | Description                             |
-| ----------------- | ------ | --------------------------------------- |
-| `onTogglePressed` |        | Executes toggle (title) area is pressed |
+| Event             | Detail | Description                         |
+| ----------------- | ------ | ----------------------------------- |
+| `onTogglePressed` |        | Executes when title area is pressed |
 
 
 ----------------------------------------------

@@ -7,6 +7,8 @@ class App extends Component {
     isOpen: true
   }
 
+  textBox: any;
+
   handleButtonPress = () => {
     this.setState({
       isOpen: !this.state.isOpen
@@ -21,19 +23,20 @@ class App extends Component {
     this.textBox.removeEventListener('go', this.handleSubmit);
   }
 
-  handleSubmit = ({detail}) => {
+  handleSubmit = ({detail}: any) => {
     console.log(`React found ${detail}!!!`)
   }
 
-  handleRef = (component) => {
+  handleRef = (component: any) => {
     this.textBox = component;
   };
 
   render() {
     return (
       <div className="phone">
+
         <div className="content">
-          <cl-text-box ref={this.handleRef}></cl-text-box>
+          <cl-text-box></cl-text-box>
           <br />
           <cl-weather-card
             location="Toronto"

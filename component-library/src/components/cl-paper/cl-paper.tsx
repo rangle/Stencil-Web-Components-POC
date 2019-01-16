@@ -6,7 +6,7 @@ import { SystemSpaces, mapSpaceStyles } from '../../utils/design-system';
   styleUrl: 'cl-paper.css',
   shadow: true
 })
-export class ClBox {
+export class ClPaper {
 
   /**
   * Space style props
