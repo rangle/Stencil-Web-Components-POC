@@ -1,36 +1,55 @@
+html {  height: 100% }
 body {
   background-color: #efefef;
-}
-
-.App {
-  /* text-align: center; */
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 200px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display:flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  height: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.phone {
+  border-radius: 18px;
+  width: 340px;
+  position: relative;
+  background-color: #222222;
+  padding: 30px 15px 60px 15px;
+  display: block;
+
+}
+.phone:after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  margin-left: -20px;
+  bottom: 10px;
+  width: 40px;
+  height: 40px;
+  background-color: #444444;
+  border:1px solid #555555;
+  border-radius: 100%;
+}
+.phone:before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  margin-left: -60px;
+  top: 10px;
+  width: 120px;
+  height: 10px;
+  background-color: #444444;
+  border:1px solid #555555;
+  border-radius: 12px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.content {
+  min-height: 500px;
+  background-color: #efefef;
+  border-radius: 12px;
+  overflow-y: scroll;
+  padding:20px;
+  max-height: 550px;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
