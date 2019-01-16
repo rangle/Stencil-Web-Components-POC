@@ -964,6 +964,27 @@ function createListenerCallback(plt, elm, eventMethodName, val) {
   };
 }
 
+function enableEventListener(plt, instance, eventName, shouldEnable, attachTo, passive) {
+  if (instance) {
+    // cool, we've got an instance, it's get the element it's on
+    const elm = plt.hostElementMap.get(instance);
+    const cmpMeta = plt.getComponentMeta(elm);
+    if (cmpMeta && cmpMeta.listenersMeta) 
+    // alrighty, so this cmp has listener meta
+    if (shouldEnable) {
+      // we want to enable this event
+      // find which listen meta we're talking about
+      const listenMeta = cmpMeta.listenersMeta.find(l => l.eventName === eventName);
+      listenMeta && 
+      // found the listen meta, so let's add the listener
+      plt.domApi.$addEventListener(elm, eventName, ev => instance[listenMeta.eventMethodName](ev), listenMeta.eventCapture, void 0 === passive ? listenMeta.eventPassive : !!passive, attachTo);
+    } else 
+    // we're disabling the event listener
+    // so let's just remove it entirely
+    plt.domApi.$removeEventListener(elm, eventName);
+  }
+}
+
 function generateDevInspector(namespace, win, plt, components) {
   const devInspector = win.devInspector = win.devInspector || {};
   devInspector.apps = devInspector.apps || [];
@@ -1289,7 +1310,17 @@ function initHostSnapshot(domApi, cmpMeta, hostElm, hostSnapshot, attribName) {
 }
 
 function connectedCallback(plt, cmpMeta, elm, perf) {
-  false;
+  true;
+  // initialize our event listeners on the host element
+  // we do this now so that we can listening to events that may
+  // have fired even before the instance is ready
+  if (!plt.hasListenersMap.has(elm)) {
+    // it's possible we've already connected
+    // then disconnected
+    // and the same element is reconnected again
+    plt.hasListenersMap.set(elm, true);
+    initElementListeners(plt, elm);
+  }
   // this element just connected, which may be re-connecting
   // ensure we remove it from our map of disconnected
   plt.isDisconnectedMap.delete(elm);
@@ -1730,7 +1761,27 @@ function initComponentInstance(plt, elm, hostSnapshot, perf, instance, component
     // add each of the event emitters which wire up instance methods
     // to fire off dom events from the host element
     initEventEmitters(plt, componentConstructor.events, instance);
-    false;
+    true;
+    try {
+      // replay any event listeners on the instance that
+      // were queued up between the time the element was
+      // connected and before the instance was ready
+      queuedEvents = plt.queuedEvents.get(elm);
+      if (queuedEvents) {
+        // events may have already fired before the instance was even ready
+        // now that the instance is ready, let's replay all of the events that
+        // we queued up earlier that were originally meant for the instance
+        for (i = 0; i < queuedEvents.length; i += 2) 
+        // data was added in sets of two
+        // first item the eventMethodName
+        // second item is the event data
+        // take a look at initElementListener()
+        instance[queuedEvents[i]](queuedEvents[i + 1]);
+        plt.queuedEvents.delete(elm);
+      }
+    } catch (e) {
+      plt.onError(e, 2 /* QueueEventsError */ , elm);
+    }
   } catch (e) {
     // something done went wrong trying to create a component instance
     // create a dumby instance so other stuff can load
@@ -2018,7 +2069,8 @@ function createPlatformMain(namespace, Context, win, doc, resourcesUrl, hydrated
   Context.location = win.location;
   Context.document = doc;
   Context.resourcesUrl = Context.publicPath = resourcesUrl;
-  false;
+  true;
+  Context.enableListener = ((instance, eventName, enabled, attachTo, passive) => enableEventListener(plt, instance, eventName, enabled, attachTo, passive));
   true;
   Context.emit = ((elm, eventName, data) => domApi.$dispatchEvent(elm, Context.eventNameFn ? Context.eventNameFn(eventName) : eventName, data));
   // add the h() fn to the app's global namespace
@@ -2169,4 +2221,4 @@ function createPlatformMain(namespace, Context, win, doc, resourcesUrl, hydrated
 
 // esm build which uses es module imports and dynamic imports
 createPlatformMain(namespace, Context, window, document, resourcesUrl, hydratedCssClass, components);
-})(window,document,{},"ComponentLibrary","hydrated",[["cl-2-up","cl-2-up",1,0,1],["cl-avatar","cl-2-up",1,[["spaces",1],["src",1,0,1,2]],1],["cl-box","cl-box",1,[["spaces",1]],1],["cl-button-box","cl-button-box",1,[["spaces",1]],1],["cl-expansion-panel","cl-button-box",1,[["_isOpen",16],["isOpen",1,0,"is-open",4]],1],["cl-heading","cl-2-up",1,0,1],["cl-paper","cl-paper",1,[["isInvisible",1,0,"is-invisible",4],["spaces",1]],1],["cl-text","cl-paper",1,[["size",1,0,1,2],["weight",1,0,1,2]],1],["cl-weather-card","cl-2-up",1,[["details",1,0,1,2],["location",1,0,1,2],["src",1,0,1,2],["temperature",1,0,1,2]],1],["my-component","my-component",1,[["first",1,0,1,2],["last",1,0,1,2],["middle",1,0,1,2]],1]]);
+})(window,document,{},"ComponentLibrary","hydrated",[["cl-2-up","cl-2-up",1,0,1],["cl-avatar","cl-2-up",1,[["spaces",1],["src",1,0,1,2]],1],["cl-box","cl-box",1,[["spaces",1]],1],["cl-button-box","cl-button-box",1,[["spaces",1]],1],["cl-expansion-panel","cl-expansion-panel",1,[["_isOpen",16],["isOpen",1,0,"is-open",4]],1],["cl-heading","cl-2-up",1,0,1],["cl-paper","cl-button-box",1,[["isInvisible",1,0,"is-invisible",4],["spaces",1]],1],["cl-symbol-icon","cl-symbol-icon",1,[["character",1,0,1,8]],1],["cl-text","cl-text",1,[["color",1,0,1,2],["size",1,0,1,2],["weight",1,0,1,2]],1],["cl-text-box","cl-symbol-icon",1,[["spaces",1],["value",16]],1,[["keyup","handleKeyDown"]]],["cl-weather-card","cl-2-up",1,[["details",1,0,1,2],["location",1,0,1,2],["src",1,0,1,2],["temperature",1,0,1,2]],1],["my-component","my-component",1,[["first",1,0,1,2],["last",1,0,1,2],["middle",1,0,1,2]],1]]);

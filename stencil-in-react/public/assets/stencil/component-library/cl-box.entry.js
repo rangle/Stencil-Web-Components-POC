@@ -1,10 +1,13 @@
 /*! Built with http://stenciljs.com */
 const { h } = window.ComponentLibrary;
 
-import { a as mapSpaceStyles } from './chunk-06567094.js';
+import { a as mapSpaceStyles } from './chunk-f6bf1b11.js';
 
 class ClBox {
     constructor() {
+        /**
+        * Space style props
+        */
         this.spaces = [];
     }
     render() {
